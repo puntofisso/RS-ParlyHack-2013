@@ -7,17 +7,26 @@ function fake_topic_data() {
     data.push({
                 date: '2013-11-16',
                 startTime: '11:00:00',
-                subject: 'Poor people should be punished.'
+                subject: 'Poor people should be punished.',
+                topics: ['poor', 'punishment'],
+                house: 'Commons',
+                chamber: 'whatever'
             });
     data.push({
                 date: '2013-11-16',
                 startTime: '13:00:00',
-                subject: 'Appropriate punishments for paupers.'
+                subject: 'Appropriate punishments for paupers.',
+                topics: ['poor', 'punishment'],
+                house: 'Commons',
+                chamber: 'whatever'
             });
     data.push({
                 date: '2013-11-16',
                 startTime: '15:00:00',
-                subject: 'What are we going to do with all the space?'
+                subject: 'What are we going to do with all the space?',
+                topics: ['all the space', 'do'],
+                house: 'Commons',
+                chamber: 'whatever'
             });
     return data;
 }

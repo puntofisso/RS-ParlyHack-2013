@@ -25,7 +25,31 @@ function load_upcoming_business() {
 }
 
 function populate_upcoming_business(items) {
+    var ul = '';
+    ul += '<li data-role="list-divider">Upcoming...</li>';
     
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+                
+        var li =
+                '<li>' +
+                    '<a>' +
+                        '<img src="img/portcullis.png" />' +
+                        '<h3 style="font-weight: normal;">' + item.subject + '</h3>' +
+                        '<p>' + item.date + '</p>' +
+                    '</a>' +
+                    //'<a href="#" onclick="alert(\'Delete not yet implemented.\');"></a>' +
+                '</li>';
+                
+        ul += li;
+    }
+
+    // set up list    
+    $('#commons-upcoming-business-list').html(ul);
+    $('#commons-upcoming-business-list').attr('data-role', 'listview');
+    $('#commons-upcoming-business-list').attr('data-inset', 'true');
+    // $('#posts-list-ul').attr('data-split-icon', 'delete');
     
-    
+    // apply listview
+    $('#commons-upcoming-business-list').listview('refresh');
 }
