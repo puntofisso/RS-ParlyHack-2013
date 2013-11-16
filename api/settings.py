@@ -3,6 +3,8 @@
 from os import environ
 from urlparse import urlparse
 
+from schemas import events_schema
+
 API_NAME = 'MPinion'
 URL_PREFIX = 'api'
 if 'EVE_DEBUG' in environ:
@@ -18,8 +20,14 @@ if 'MONGOLAB_URI' in environ:
 else:
     MONGO_DBNAME = API_NAME
 
+events = {
+    "item_title": "events",
+    "schema": events_schema,
+    "resource_methods": ['GET'],
+}
+
 DOMAIN = {
-    'events': {},
+    'events': events,
 }
 
 # FIXME: Temporarily allow CORS requests for development purposes
