@@ -1,10 +1,16 @@
 from os import environ
 
 from eve import Eve
+from eve.methods.post import post
 
 from settings import API_NAME
 
 app = Eve(API_NAME)
+
+
+def add_events(events):
+    with app.test_request_context():
+        return post('events', events)
 
 if __name__ == '__main__':
     # Heroku support: bind to PORT if defined, otherwise default to 5000.
