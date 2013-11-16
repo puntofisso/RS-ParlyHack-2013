@@ -1,1 +1,2 @@
+xmltodict==0.8.3
 Eve=0.1.1
