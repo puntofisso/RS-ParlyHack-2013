@@ -47,9 +47,13 @@ function analyse_selected_topic_keywords() {
     } else {
         alert('No topics selected.');
     }
-    
 }
 
+function analyse_typed_topic_keyword() {
+    var typed_keyword = $('#topic-keyword-input').val();
+    if (typed_keyword == '') { alert('Please type a topic keyword.'); return; }
+    visit_report_for_selected_keyword(typed_keyword);
+}
 
 /*** PAGE LOAD EVENTS ***/
 
@@ -218,7 +222,7 @@ function populate_sentence_selector(sentence) {
     for (i = 0; i < words.length; i++) {
         var word = words[i];
         
-        html += generate_toggle_button(word, 'word' + i);
+        html += generate_toggle_button(word, 'word' + i) + ' ';
         //html += word + ' ';
     }
     
