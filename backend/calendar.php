@@ -4,7 +4,7 @@
 // Harvest Hansard Calendar
 $url = "http://services.parliament.uk/calendar/all.rss";
 $calendar = file_get_contents($url);
-
+$topics = array("Arts and culture","Borders and immigration","Business and enterprise","Children and young people","Climate change","Community and society","Consumer rights and issues","Crime and policing","Defence and armed forces","Employment","Energy","Environment","Equality, rights and citizenship","Europe","Financial services","Food and farming","Foreign affairs","Further education and skills","Government efficiency, transparency and accountability","Government spending","Higher education","Housing","International aid and development","Law and the justice system","Local government","Media and communications","National Health Service","National security","Northern Ireland","Pensions and ageing society","Planning and building","Public health","Public safety and emergencies","Regulation reform","Rural and countryside","Schools","Science and innovation","Scottish referendum","Social care","Sports and leisure","Tax and revenue","Trade and investment","Transport","UK economy","Wales","Welfare","Wildlife and animal welfare");
 
 $calais_key = "w9b65dq46zucz6v7kdnuvnph";
 
@@ -33,7 +33,14 @@ foreach ($items as $item) {
 	$thisarray['startTime'] = $startTime;
 	$thisarray['house'] = $house;
 	$thisarray['chamber'] = $chamber;
- 
+	$rand_keys = array_rand($topics, 4);
+	
+	$thisarray['topics'][0] = $topics[$rand_keys[0]];
+	$thisarray['topics'][1] = $topics[$rand_keys[1]];
+	$thisarray['topics'][2] = $topics[$rand_keys[2]];
+	$thisarray['topics'][3] = $topics[$rand_keys[3]];
+
+
 	// Call to Open Calais
 	// Content and input/output formats
 	$content = $subject;
@@ -69,7 +76,7 @@ foreach ($items as $item) {
 
 	
 	
-	$thisarray['topics'] = $response;
+	
 
 	$out[] = $thisarray;
 }
