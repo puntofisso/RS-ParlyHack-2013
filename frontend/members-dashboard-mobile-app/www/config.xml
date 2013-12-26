@@ -1,3 +1,7 @@
-<widget>
+<widget id="com.flt.whip.parlyhack2013.mpinion">
         <access origin="*" />
+	<name>MPinion</name>
+	<description>
+		Fast time analysis of public sentiment for MPs.
+	</description>
 </widget>
